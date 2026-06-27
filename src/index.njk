@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include "head.njk" %}
+  </head>
+  <body>
+    {% include "header.njk" %}
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>{{ collections.pages | where("fileSlug","about") | first.data.title }}</h1>
+          <div class="hero-hook">{{ collections.pages | where("fileSlug","about") | first.data.body | safe }}</div>
+        </div>
+      </section>
+
+      <section class="brand-work">
+        <h2>Selected Work</h2>
+        <div class="grid">
+          {% for item in collections.brand_work %}
+            <article class="card">
+              {% if item.data.thumbnail %}
+                <img src="{{ item.data.thumbnail }}" alt="{{ item.data.title }}" />
+              {% endif %}
+              <h3>{{ item.data.title }}</h3>
+              <p>{{ item.data.services }}</p>
+              <div>{{ item.templateContent | safe }}</div>
+              {% if item.data.link %}<a href="{{ item.data.link }}">View →</a>{% endif %}
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <h2>Testimonials</h2>
+        {% for t in collections.testimonials %}
+          <blockquote>
+            <p>{{ t.data.quote }}</p>
+            <footer>{{ t.data.author }} — {{ t.data.role }}</footer>
+          </blockquote>
+        {% endfor %}
+      </section>
+
+      <section class="stats">
+        <h2>Impact</h2>
+        {% set s = collections.stats | first %}
+        <ul>
+          <li>LinkedIn: {{ s.data.linkedin_followers }}</li>
+          <li>Organic Growth: {{ s.data.organic_growth }}</li>
+          <li>Paid Growth: {{ s.data.paid_growth }}</li>
+          <li>Impressions: {{ s.data.impression_growth }}</li>
+        </ul>
+      </section>
+
+    </main>
+
+    {% include "footer.njk" %}
+  </body>
+</html>

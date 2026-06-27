@@ -1,0 +1,6 @@
+/* Minimal styles to preserve structure. Add your full styles in src/assets/styles.css */
+body{font-family:Inter,Arial,sans-serif;background:#000;color:#fff;padding:24px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:#111;padding:12px;border-radius:8px}
+img{max-width:100%;height:auto}

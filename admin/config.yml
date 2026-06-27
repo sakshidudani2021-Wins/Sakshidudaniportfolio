@@ -1,0 +1,85 @@
+backend:
+  name: git-gateway
+  branch: main
+  repo: "sakshidudani2021-Wins/Sakshidudaniportfolio"
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/about.md"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "content/pages/contact.md"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "brand_work"
+    label: "Brand Work"
+    folder: "content/brand-work"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Services", name: "services", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Link", name: "link", widget: "string" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+
+  - name: "stats"
+    label: "Stats"
+    files:
+      - file: "content/stats.json"
+        label: "Site Stats"
+        name: "site_stats"
+        fields:
+          - { label: "LinkedIn Followers", name: "linkedin_followers", widget: "string" }
+          - { label: "Organic Growth", name: "organic_growth", widget: "string" }
+          - { label: "Paid Growth", name: "paid_growth", widget: "string" }
+          - { label: "Impression Growth", name: "impression_growth", widget: "string" }
+
+  - name: "skills"
+    label: "Skills"
+    files:
+      - file: "content/skills.json"
+        label: "Skills"
+        name: "skills"
+        fields:
+          - { label: "Skills (comma separated)", name: "skills", widget: "string" }
+
+  - name: "interests"
+    label: "Interests"
+    files:
+      - file: "content/interests.json"
+        label: "Interests"
+        name: "interests"
+        fields:
+          - { label: "Interests (comma separated)", name: "interests", widget: "string" }
+
+  - name: "ai_tools"
+    label: "AI Tools"
+    files:
+      - file: "content/ai-tools.json"
+        label: "AI Tools"
+        name: "ai_tools"
+        fields:
+          - { label: "Tools (comma separated)", name: "tools", widget: "string" }
